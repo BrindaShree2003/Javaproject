@@ -1,0 +1,162 @@
+package project;
+
+import java.util.Scanner;
+
+public class NewProj {
+	String a,b,c,d,e;
+	Scanner input=new Scanner(System.in);
+
+	public void mobile() {
+		 int attempts = 0;
+		 
+	        while (attempts < 3) {
+	            System.out.println("Do you want a phone (Yes/No):");
+	            a = input.nextLine().toLowerCase();
+	            if (a.equals("yes")) {
+	            	phone();
+	                return; 
+	            } else if (a.equals("no")) {
+	                System.out.println("Ok Bye! See you next time");
+	                return; 
+	            } else {
+	                attempts++;
+	                System.out.println("Please give correct response (yes/no). " + (3 - attempts) + " attempts left.");
+	            }
+	        }
+	        System.out.println("You have reached your maximum attempts, please visit again!");
+	       
+	}
+	private void phone() {
+		int attempts=0;
+		
+		while(attempts<3) {
+			System.out.println("which phone do you prefer(samsung/apple):");
+			b=input.nextLine().toLowerCase();
+			
+				if (b.equals("samsung")) {
+	                samsungModel();
+	                return; 
+	            } else if (b.equals("apple")) {
+	                appleModel();
+	                return; 
+	            } else {
+	                attempts++;
+	                System.out.println("Please give correct response (samsung/apple). " + (3 - attempts) + " attempts left.");
+	            }
+	        			
+		}
+        System.out.println("You have reached the maximum attempts for phone selection.");
+
+	}
+	private void samsungModel() {
+		int attempts=0;
+		while(attempts<3) {
+			System.out.println("Which model do you need(s23/s24/s24ultra):");
+			c=input.next().toLowerCase();
+			if(c.equals("s23")||c.equals("s24")||c.equals("s24ultra")) {
+				color();
+				return;
+			}
+			else {
+				attempts++;
+				System.out.println("Please select the given option(s23/s24/s24ultra):"+(3-attempts)+ " attempts left");
+			}
+		}
+		System.out.println("You have reached the maximum attempts for phone model selection.");
+	}
+	
+	private void color() {
+		int attempts=0;
+		while(attempts<3) {
+			System.out.println("Which colour do you need(black/blue/white):");
+			d=input.next().toLowerCase();
+			if(d.equals("black")||d.equals("blue")||d.equals("white")) {
+				variant();
+				return;
+			}
+			else {
+				attempts++;
+				System.out.println("Please select the given option(black/blue/white): "+(3-attempts)+ " attempts left");
+			}
+		}
+		System.out.println("You have reached the maximum attempts for colour selection.");
+		
+	}
+	private void variant() {
+		int attempts=0;
+		while(attempts<3) {
+			System.out.println("Which varient do you need(128/256/512):");
+			e=input.next().toLowerCase();
+			if(e.equals("128")||e.equals("256")||e.equals("512")||e.equals("128gb")||e.equals("256gb")||e.equals("512gb")) {
+				System.out.println("Specification for your phone:");
+				System.out.println("Brand: "+b.toUpperCase());
+				System.out.println("Model: "+c.toUpperCase());
+				System.out.println("Color: "+d.toUpperCase());
+				System.out.println("Variant: "+e.toUpperCase() +"GB");
+				description();
+				return;
+			}
+			else {
+				attempts++;
+				System.out.println("Please select the given option(128/256/512):"+(3-attempts)+ " attempts left");
+			}
+		}
+		System.out.println("You have reached the maximum attempts for colour selection.");
+		
+	}
+	private void appleModel() {
+		int attempts=0;
+		while(attempts<3) {
+			System.out.println("Which model do you need(iphone14/iphone15/iphone/16):");
+			c=input.next().toLowerCase();
+			if(c.equals("iphone14")||c.equals("iphone15")||c.equals("iphone16")) {
+				color();
+				return;
+			}
+			else {
+				attempts++;
+				System.out.println("Please select the given option(iphone14/iphone15/iphone/16):"+(3-attempts)+ " attempts left");
+			}
+		}
+		System.out.println("You have reached the maximum attempts for phone model selection.");
+	}
+	
+	private void description() {
+        switch (c) {
+            case "s23":
+                specification("50MP", "3900mAh", "Snapdragon 7 Gen 3", "6.1'", "Amoled", "55999/-");
+                break;
+            case "s24":
+            	specification("50MP", "4000mAh", "Snapdragon 8 Gen 2", "6.2'", "Dynamic Amoled", "71999/-");
+                break;
+            case "s24ultra":
+            	specification("200MP", "5000mAh", "Snapdragon 8 Gen 3", "6.8'", "Dynamic Amoled 120Hz", "119999/-");
+                break;
+            case "iphone14":
+            	specification("12MP", "3300mAh", "iOS 16", "6.1'", "Super Retina XDR OLED", "54999/-");
+                break;
+            case "iphone15":
+            	specification("48MP", "3400mAh", "iOS 17", "6.1'", "Super Retina XDR OLED", "75999/-");
+                break;
+            case "iphone16":
+            	specification("48MP", "3600mAh", "iOS 18", "6.1'", "Super Retina XDR OLED", "109999/-");
+                break;
+        }
+    }
+
+    private void specification(String camera, String battery, String os, String size, String display, String price) {
+        System.out.println("Camera: " + camera);
+        System.out.println("Battery: " + battery);
+        System.out.println("OS: " + os);
+        System.out.println("Size: " + size);
+        System.out.println("Display: " + display);
+        System.out.println("Price: " + price);
+    }
+
+    public static void main(String[] args) {
+		NewProj obj=new NewProj();
+		obj.mobile();
+	}
+
+    
+}
